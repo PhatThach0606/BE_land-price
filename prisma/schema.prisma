@@ -1,0 +1,62 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/modules-system/prisma/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model spatial_ref_sys {
+  srid      Int     @id
+  auth_name String? @db.VarChar(256)
+  auth_srid Int?
+  srtext    String? @db.VarChar(2048)
+  proj4text String? @db.VarChar(2048)
+}
+
+model giaothong {
+  gid       Int                      @id @default(autoincrement())
+  loai_dat  String?                  @db.VarChar(10)
+  dien_tich Float?
+  ma_xa     String?                  @db.VarChar(5)
+  so_to     Float?
+  so_thua   Float?
+  layer     String?                  @db.VarChar(254)
+  path      String?                  @db.VarChar(254)
+  ten_duong String?                  @db.VarChar(254)
+  price     Float?
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model thuadat {
+  gid       Int                      @id @default(autoincrement())
+  loai_dat  String?                  @db.VarChar(10)
+  dien_tich Float?
+  ma_xa     String?                  @db.VarChar(5)
+  so_to     Float?
+  so_thua   Float?
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model timduong {
+  gid       Int                      @id @default(autoincrement())
+  loai_dat  String?                  @db.VarChar(10)
+  dien_tich Float?
+  ma_xa     String?                  @db.VarChar(5)
+  so_to     Float?
+  so_thua   Float?
+  layer     String?                  @db.VarChar(254)
+  path      String?                  @db.VarChar(254)
+  ten_duong String?                  @db.VarChar(254)
+  price     Float?
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
