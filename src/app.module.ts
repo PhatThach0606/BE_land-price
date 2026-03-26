@@ -5,8 +5,9 @@ import { AuthModule } from './modules-api/auth/auth.module';
 import { MapModule } from './modules-api/map/map.module';
 import { PrismaModule } from './modules-system/prisma/prisma.module';
 import { SpatialModule } from './modules-api/spatial/spatial.module';
+import { JwtModule } from '@nestjs/jwt';
 @Module({
-  imports: [AuthModule, MapModule, PrismaModule, SpatialModule],
+  imports: [AuthModule, MapModule, PrismaModule, SpatialModule, JwtModule],
   controllers: [AppController],
   providers: [AppService],
 })

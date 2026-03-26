@@ -3,7 +3,6 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-
 import { PrismaService } from 'src/modules-system/prisma/prisma.service';
 import { PointDto } from './dto/spatial.dto.js';
 import * as turf from '@turf/turf';
