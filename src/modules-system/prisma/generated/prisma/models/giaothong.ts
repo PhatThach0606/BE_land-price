@@ -29,56 +29,55 @@ export type AggregateGiaothong = {
 export type GiaothongAvgAggregateOutputType = {
   gid: number | null
   dien_tich: number | null
-  so_to: number | null
-  so_thua: number | null
-  price: number | null
+  vi_tri: number | null
+  odt: number | null
+  tmv: number | null
+  skc: number | null
 }
 
 export type GiaothongSumAggregateOutputType = {
   gid: number | null
   dien_tich: number | null
-  so_to: number | null
-  so_thua: number | null
-  price: number | null
+  vi_tri: number | null
+  odt: number | null
+  tmv: number | null
+  skc: number | null
 }
 
 export type GiaothongMinAggregateOutputType = {
   gid: number | null
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  vi_tri: number | null
+  odt: number | null
+  tmv: number | null
+  skc: number | null
+  doan_duong: string | null
 }
 
 export type GiaothongMaxAggregateOutputType = {
   gid: number | null
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  vi_tri: number | null
+  odt: number | null
+  tmv: number | null
+  skc: number | null
+  doan_duong: string | null
 }
 
 export type GiaothongCountAggregateOutputType = {
   gid: number
-  loai_dat: number
-  dien_tich: number
   ma_xa: number
-  so_to: number
-  so_thua: number
-  layer: number
-  path: number
+  dien_tich: number
   ten_duong: number
-  price: number
+  vi_tri: number
+  odt: number
+  tmv: number
+  skc: number
+  doan_duong: number
   _all: number
 }
 
@@ -86,56 +85,55 @@ export type GiaothongCountAggregateOutputType = {
 export type GiaothongAvgAggregateInputType = {
   gid?: true
   dien_tich?: true
-  so_to?: true
-  so_thua?: true
-  price?: true
+  vi_tri?: true
+  odt?: true
+  tmv?: true
+  skc?: true
 }
 
 export type GiaothongSumAggregateInputType = {
   gid?: true
   dien_tich?: true
-  so_to?: true
-  so_thua?: true
-  price?: true
+  vi_tri?: true
+  odt?: true
+  tmv?: true
+  skc?: true
 }
 
 export type GiaothongMinAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  vi_tri?: true
+  odt?: true
+  tmv?: true
+  skc?: true
+  doan_duong?: true
 }
 
 export type GiaothongMaxAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  vi_tri?: true
+  odt?: true
+  tmv?: true
+  skc?: true
+  doan_duong?: true
 }
 
 export type GiaothongCountAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  vi_tri?: true
+  odt?: true
+  tmv?: true
+  skc?: true
+  doan_duong?: true
   _all?: true
 }
 
@@ -227,15 +225,14 @@ export type giaothongGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 
 export type GiaothongGroupByOutputType = {
   gid: number
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  vi_tri: number | null
+  odt: number | null
+  tmv: number | null
+  skc: number | null
+  doan_duong: string | null
   _count: GiaothongCountAggregateOutputType | null
   _avg: GiaothongAvgAggregateOutputType | null
   _sum: GiaothongSumAggregateOutputType | null
@@ -263,28 +260,26 @@ export type giaothongWhereInput = {
   OR?: Prisma.giaothongWhereInput[]
   NOT?: Prisma.giaothongWhereInput | Prisma.giaothongWhereInput[]
   gid?: Prisma.IntFilter<"giaothong"> | number
-  loai_dat?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  dien_tich?: Prisma.FloatNullableFilter<"giaothong"> | number | null
   ma_xa?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  so_to?: Prisma.FloatNullableFilter<"giaothong"> | number | null
-  so_thua?: Prisma.FloatNullableFilter<"giaothong"> | number | null
-  layer?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  path?: Prisma.StringNullableFilter<"giaothong"> | string | null
+  dien_tich?: Prisma.FloatNullableFilter<"giaothong"> | number | null
   ten_duong?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  price?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  vi_tri?: Prisma.IntNullableFilter<"giaothong"> | number | null
+  odt?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  tmv?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  skc?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  doan_duong?: Prisma.StringNullableFilter<"giaothong"> | string | null
 }
 
 export type giaothongOrderByWithRelationInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrderInput | Prisma.SortOrder
-  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ma_xa?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_to?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_thua?: Prisma.SortOrderInput | Prisma.SortOrder
-  layer?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ten_duong?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrderInput | Prisma.SortOrder
+  vi_tri?: Prisma.SortOrderInput | Prisma.SortOrder
+  odt?: Prisma.SortOrderInput | Prisma.SortOrder
+  tmv?: Prisma.SortOrderInput | Prisma.SortOrder
+  skc?: Prisma.SortOrderInput | Prisma.SortOrder
+  doan_duong?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type giaothongWhereUniqueInput = Prisma.AtLeast<{
@@ -292,28 +287,26 @@ export type giaothongWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.giaothongWhereInput | Prisma.giaothongWhereInput[]
   OR?: Prisma.giaothongWhereInput[]
   NOT?: Prisma.giaothongWhereInput | Prisma.giaothongWhereInput[]
-  loai_dat?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  dien_tich?: Prisma.FloatNullableFilter<"giaothong"> | number | null
   ma_xa?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  so_to?: Prisma.FloatNullableFilter<"giaothong"> | number | null
-  so_thua?: Prisma.FloatNullableFilter<"giaothong"> | number | null
-  layer?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  path?: Prisma.StringNullableFilter<"giaothong"> | string | null
+  dien_tich?: Prisma.FloatNullableFilter<"giaothong"> | number | null
   ten_duong?: Prisma.StringNullableFilter<"giaothong"> | string | null
-  price?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  vi_tri?: Prisma.IntNullableFilter<"giaothong"> | number | null
+  odt?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  tmv?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  skc?: Prisma.FloatNullableFilter<"giaothong"> | number | null
+  doan_duong?: Prisma.StringNullableFilter<"giaothong"> | string | null
 }, "gid">
 
 export type giaothongOrderByWithAggregationInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrderInput | Prisma.SortOrder
-  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ma_xa?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_to?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_thua?: Prisma.SortOrderInput | Prisma.SortOrder
-  layer?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ten_duong?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrderInput | Prisma.SortOrder
+  vi_tri?: Prisma.SortOrderInput | Prisma.SortOrder
+  odt?: Prisma.SortOrderInput | Prisma.SortOrder
+  tmv?: Prisma.SortOrderInput | Prisma.SortOrder
+  skc?: Prisma.SortOrderInput | Prisma.SortOrder
+  doan_duong?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.giaothongCountOrderByAggregateInput
   _avg?: Prisma.giaothongAvgOrderByAggregateInput
   _max?: Prisma.giaothongMaxOrderByAggregateInput
@@ -326,158 +319,149 @@ export type giaothongScalarWhereWithAggregatesInput = {
   OR?: Prisma.giaothongScalarWhereWithAggregatesInput[]
   NOT?: Prisma.giaothongScalarWhereWithAggregatesInput | Prisma.giaothongScalarWhereWithAggregatesInput[]
   gid?: Prisma.IntWithAggregatesFilter<"giaothong"> | number
-  loai_dat?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
-  dien_tich?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
   ma_xa?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
-  so_to?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
-  so_thua?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
-  layer?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
-  path?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
+  dien_tich?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
   ten_duong?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
-  price?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
+  vi_tri?: Prisma.IntNullableWithAggregatesFilter<"giaothong"> | number | null
+  odt?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
+  tmv?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
+  skc?: Prisma.FloatNullableWithAggregatesFilter<"giaothong"> | number | null
+  doan_duong?: Prisma.StringNullableWithAggregatesFilter<"giaothong"> | string | null
 }
 
 export type giaothongCreateInput = {
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  vi_tri?: number | null
+  odt?: number | null
+  tmv?: number | null
+  skc?: number | null
+  doan_duong?: string | null
 }
 
 export type giaothongUncheckedCreateInput = {
   gid?: number
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  vi_tri?: number | null
+  odt?: number | null
+  tmv?: number | null
+  skc?: number | null
+  doan_duong?: string | null
 }
 
 export type giaothongUpdateInput = {
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  vi_tri?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  odt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tmv?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  skc?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  doan_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type giaothongUncheckedUpdateInput = {
   gid?: Prisma.IntFieldUpdateOperationsInput | number
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  vi_tri?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  odt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tmv?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  skc?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  doan_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type giaothongCreateManyInput = {
   gid?: number
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  vi_tri?: number | null
+  odt?: number | null
+  tmv?: number | null
+  skc?: number | null
+  doan_duong?: string | null
 }
 
 export type giaothongUpdateManyMutationInput = {
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  vi_tri?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  odt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tmv?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  skc?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  doan_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type giaothongUncheckedUpdateManyInput = {
   gid?: Prisma.IntFieldUpdateOperationsInput | number
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  vi_tri?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  odt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tmv?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  skc?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  doan_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type giaothongCountOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  vi_tri?: Prisma.SortOrder
+  odt?: Prisma.SortOrder
+  tmv?: Prisma.SortOrder
+  skc?: Prisma.SortOrder
+  doan_duong?: Prisma.SortOrder
 }
 
 export type giaothongAvgOrderByAggregateInput = {
   gid?: Prisma.SortOrder
   dien_tich?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  vi_tri?: Prisma.SortOrder
+  odt?: Prisma.SortOrder
+  tmv?: Prisma.SortOrder
+  skc?: Prisma.SortOrder
 }
 
 export type giaothongMaxOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  vi_tri?: Prisma.SortOrder
+  odt?: Prisma.SortOrder
+  tmv?: Prisma.SortOrder
+  skc?: Prisma.SortOrder
+  doan_duong?: Prisma.SortOrder
 }
 
 export type giaothongMinOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  vi_tri?: Prisma.SortOrder
+  odt?: Prisma.SortOrder
+  tmv?: Prisma.SortOrder
+  skc?: Prisma.SortOrder
+  doan_duong?: Prisma.SortOrder
 }
 
 export type giaothongSumOrderByAggregateInput = {
   gid?: Prisma.SortOrder
   dien_tich?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  vi_tri?: Prisma.SortOrder
+  odt?: Prisma.SortOrder
+  tmv?: Prisma.SortOrder
+  skc?: Prisma.SortOrder
 }
 
 export type NullableFloatFieldUpdateOperationsInput = {
@@ -492,72 +476,67 @@ export type NullableFloatFieldUpdateOperationsInput = {
 
 export type giaothongSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  vi_tri?: boolean
+  odt?: boolean
+  tmv?: boolean
+  skc?: boolean
+  doan_duong?: boolean
 }, ExtArgs["result"]["giaothong"]>
 
 export type giaothongSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  vi_tri?: boolean
+  odt?: boolean
+  tmv?: boolean
+  skc?: boolean
+  doan_duong?: boolean
 }, ExtArgs["result"]["giaothong"]>
 
 export type giaothongSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  vi_tri?: boolean
+  odt?: boolean
+  tmv?: boolean
+  skc?: boolean
+  doan_duong?: boolean
 }, ExtArgs["result"]["giaothong"]>
 
 export type giaothongSelectScalar = {
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  vi_tri?: boolean
+  odt?: boolean
+  tmv?: boolean
+  skc?: boolean
+  doan_duong?: boolean
 }
 
-export type giaothongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"gid" | "loai_dat" | "dien_tich" | "ma_xa" | "so_to" | "so_thua" | "layer" | "path" | "ten_duong" | "price", ExtArgs["result"]["giaothong"]>
+export type giaothongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"gid" | "ma_xa" | "dien_tich" | "ten_duong" | "vi_tri" | "odt" | "tmv" | "skc" | "doan_duong", ExtArgs["result"]["giaothong"]>
 
 export type $giaothongPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "giaothong"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     gid: number
-    loai_dat: string | null
-    dien_tich: number | null
     ma_xa: string | null
-    so_to: number | null
-    so_thua: number | null
-    layer: string | null
-    path: string | null
+    dien_tich: number | null
     ten_duong: string | null
-    price: number | null
+    vi_tri: number | null
+    odt: number | null
+    tmv: number | null
+    skc: number | null
+    doan_duong: string | null
   }, ExtArgs["result"]["giaothong"]>
   composites: {}
 }
@@ -982,15 +961,14 @@ export interface Prisma__giaothongClient<T, Null = never, ExtArgs extends runtim
  */
 export interface giaothongFieldRefs {
   readonly gid: Prisma.FieldRef<"giaothong", 'Int'>
-  readonly loai_dat: Prisma.FieldRef<"giaothong", 'String'>
-  readonly dien_tich: Prisma.FieldRef<"giaothong", 'Float'>
   readonly ma_xa: Prisma.FieldRef<"giaothong", 'String'>
-  readonly so_to: Prisma.FieldRef<"giaothong", 'Float'>
-  readonly so_thua: Prisma.FieldRef<"giaothong", 'Float'>
-  readonly layer: Prisma.FieldRef<"giaothong", 'String'>
-  readonly path: Prisma.FieldRef<"giaothong", 'String'>
+  readonly dien_tich: Prisma.FieldRef<"giaothong", 'Float'>
   readonly ten_duong: Prisma.FieldRef<"giaothong", 'String'>
-  readonly price: Prisma.FieldRef<"giaothong", 'Float'>
+  readonly vi_tri: Prisma.FieldRef<"giaothong", 'Int'>
+  readonly odt: Prisma.FieldRef<"giaothong", 'Float'>
+  readonly tmv: Prisma.FieldRef<"giaothong", 'Float'>
+  readonly skc: Prisma.FieldRef<"giaothong", 'Float'>
+  readonly doan_duong: Prisma.FieldRef<"giaothong", 'String'>
 }
     
 

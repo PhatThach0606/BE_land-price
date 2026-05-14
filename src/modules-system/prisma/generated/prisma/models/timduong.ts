@@ -29,56 +29,37 @@ export type AggregateTimduong = {
 export type TimduongAvgAggregateOutputType = {
   gid: number | null
   dien_tich: number | null
-  so_to: number | null
-  so_thua: number | null
-  price: number | null
+  id_gt: number | null
 }
 
 export type TimduongSumAggregateOutputType = {
   gid: number | null
   dien_tich: number | null
-  so_to: number | null
-  so_thua: number | null
-  price: number | null
+  id_gt: number | null
 }
 
 export type TimduongMinAggregateOutputType = {
   gid: number | null
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  id_gt: number | null
 }
 
 export type TimduongMaxAggregateOutputType = {
   gid: number | null
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  id_gt: number | null
 }
 
 export type TimduongCountAggregateOutputType = {
   gid: number
-  loai_dat: number
-  dien_tich: number
   ma_xa: number
-  so_to: number
-  so_thua: number
-  layer: number
-  path: number
+  dien_tich: number
   ten_duong: number
-  price: number
+  id_gt: number
   _all: number
 }
 
@@ -86,56 +67,37 @@ export type TimduongCountAggregateOutputType = {
 export type TimduongAvgAggregateInputType = {
   gid?: true
   dien_tich?: true
-  so_to?: true
-  so_thua?: true
-  price?: true
+  id_gt?: true
 }
 
 export type TimduongSumAggregateInputType = {
   gid?: true
   dien_tich?: true
-  so_to?: true
-  so_thua?: true
-  price?: true
+  id_gt?: true
 }
 
 export type TimduongMinAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  id_gt?: true
 }
 
 export type TimduongMaxAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  id_gt?: true
 }
 
 export type TimduongCountAggregateInputType = {
   gid?: true
-  loai_dat?: true
-  dien_tich?: true
   ma_xa?: true
-  so_to?: true
-  so_thua?: true
-  layer?: true
-  path?: true
+  dien_tich?: true
   ten_duong?: true
-  price?: true
+  id_gt?: true
   _all?: true
 }
 
@@ -227,15 +189,10 @@ export type timduongGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type TimduongGroupByOutputType = {
   gid: number
-  loai_dat: string | null
-  dien_tich: number | null
   ma_xa: string | null
-  so_to: number | null
-  so_thua: number | null
-  layer: string | null
-  path: string | null
+  dien_tich: number | null
   ten_duong: string | null
-  price: number | null
+  id_gt: number | null
   _count: TimduongCountAggregateOutputType | null
   _avg: TimduongAvgAggregateOutputType | null
   _sum: TimduongSumAggregateOutputType | null
@@ -263,28 +220,18 @@ export type timduongWhereInput = {
   OR?: Prisma.timduongWhereInput[]
   NOT?: Prisma.timduongWhereInput | Prisma.timduongWhereInput[]
   gid?: Prisma.IntFilter<"timduong"> | number
-  loai_dat?: Prisma.StringNullableFilter<"timduong"> | string | null
-  dien_tich?: Prisma.FloatNullableFilter<"timduong"> | number | null
   ma_xa?: Prisma.StringNullableFilter<"timduong"> | string | null
-  so_to?: Prisma.FloatNullableFilter<"timduong"> | number | null
-  so_thua?: Prisma.FloatNullableFilter<"timduong"> | number | null
-  layer?: Prisma.StringNullableFilter<"timduong"> | string | null
-  path?: Prisma.StringNullableFilter<"timduong"> | string | null
+  dien_tich?: Prisma.FloatNullableFilter<"timduong"> | number | null
   ten_duong?: Prisma.StringNullableFilter<"timduong"> | string | null
-  price?: Prisma.FloatNullableFilter<"timduong"> | number | null
+  id_gt?: Prisma.FloatNullableFilter<"timduong"> | number | null
 }
 
 export type timduongOrderByWithRelationInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrderInput | Prisma.SortOrder
-  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ma_xa?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_to?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_thua?: Prisma.SortOrderInput | Prisma.SortOrder
-  layer?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ten_duong?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrderInput | Prisma.SortOrder
+  id_gt?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type timduongWhereUniqueInput = Prisma.AtLeast<{
@@ -292,28 +239,18 @@ export type timduongWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.timduongWhereInput | Prisma.timduongWhereInput[]
   OR?: Prisma.timduongWhereInput[]
   NOT?: Prisma.timduongWhereInput | Prisma.timduongWhereInput[]
-  loai_dat?: Prisma.StringNullableFilter<"timduong"> | string | null
-  dien_tich?: Prisma.FloatNullableFilter<"timduong"> | number | null
   ma_xa?: Prisma.StringNullableFilter<"timduong"> | string | null
-  so_to?: Prisma.FloatNullableFilter<"timduong"> | number | null
-  so_thua?: Prisma.FloatNullableFilter<"timduong"> | number | null
-  layer?: Prisma.StringNullableFilter<"timduong"> | string | null
-  path?: Prisma.StringNullableFilter<"timduong"> | string | null
+  dien_tich?: Prisma.FloatNullableFilter<"timduong"> | number | null
   ten_duong?: Prisma.StringNullableFilter<"timduong"> | string | null
-  price?: Prisma.FloatNullableFilter<"timduong"> | number | null
+  id_gt?: Prisma.FloatNullableFilter<"timduong"> | number | null
 }, "gid">
 
 export type timduongOrderByWithAggregationInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrderInput | Prisma.SortOrder
-  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ma_xa?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_to?: Prisma.SortOrderInput | Prisma.SortOrder
-  so_thua?: Prisma.SortOrderInput | Prisma.SortOrder
-  layer?: Prisma.SortOrderInput | Prisma.SortOrder
-  path?: Prisma.SortOrderInput | Prisma.SortOrder
+  dien_tich?: Prisma.SortOrderInput | Prisma.SortOrder
   ten_duong?: Prisma.SortOrderInput | Prisma.SortOrder
-  price?: Prisma.SortOrderInput | Prisma.SortOrder
+  id_gt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.timduongCountOrderByAggregateInput
   _avg?: Prisma.timduongAvgOrderByAggregateInput
   _max?: Prisma.timduongMaxOrderByAggregateInput
@@ -326,230 +263,146 @@ export type timduongScalarWhereWithAggregatesInput = {
   OR?: Prisma.timduongScalarWhereWithAggregatesInput[]
   NOT?: Prisma.timduongScalarWhereWithAggregatesInput | Prisma.timduongScalarWhereWithAggregatesInput[]
   gid?: Prisma.IntWithAggregatesFilter<"timduong"> | number
-  loai_dat?: Prisma.StringNullableWithAggregatesFilter<"timduong"> | string | null
-  dien_tich?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
   ma_xa?: Prisma.StringNullableWithAggregatesFilter<"timduong"> | string | null
-  so_to?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
-  so_thua?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
-  layer?: Prisma.StringNullableWithAggregatesFilter<"timduong"> | string | null
-  path?: Prisma.StringNullableWithAggregatesFilter<"timduong"> | string | null
+  dien_tich?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
   ten_duong?: Prisma.StringNullableWithAggregatesFilter<"timduong"> | string | null
-  price?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
+  id_gt?: Prisma.FloatNullableWithAggregatesFilter<"timduong"> | number | null
 }
 
 export type timduongCreateInput = {
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  id_gt?: number | null
 }
 
 export type timduongUncheckedCreateInput = {
   gid?: number
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  id_gt?: number | null
 }
 
 export type timduongUpdateInput = {
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  id_gt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type timduongUncheckedUpdateInput = {
   gid?: Prisma.IntFieldUpdateOperationsInput | number
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  id_gt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type timduongCreateManyInput = {
   gid?: number
-  loai_dat?: string | null
-  dien_tich?: number | null
   ma_xa?: string | null
-  so_to?: number | null
-  so_thua?: number | null
-  layer?: string | null
-  path?: string | null
+  dien_tich?: number | null
   ten_duong?: string | null
-  price?: number | null
+  id_gt?: number | null
 }
 
 export type timduongUpdateManyMutationInput = {
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  id_gt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type timduongUncheckedUpdateManyInput = {
   gid?: Prisma.IntFieldUpdateOperationsInput | number
-  loai_dat?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ma_xa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  so_to?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  so_thua?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  layer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  path?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dien_tich?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   ten_duong?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  id_gt?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type timduongCountOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  id_gt?: Prisma.SortOrder
 }
 
 export type timduongAvgOrderByAggregateInput = {
   gid?: Prisma.SortOrder
   dien_tich?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  id_gt?: Prisma.SortOrder
 }
 
 export type timduongMaxOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  id_gt?: Prisma.SortOrder
 }
 
 export type timduongMinOrderByAggregateInput = {
   gid?: Prisma.SortOrder
-  loai_dat?: Prisma.SortOrder
-  dien_tich?: Prisma.SortOrder
   ma_xa?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  layer?: Prisma.SortOrder
-  path?: Prisma.SortOrder
+  dien_tich?: Prisma.SortOrder
   ten_duong?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  id_gt?: Prisma.SortOrder
 }
 
 export type timduongSumOrderByAggregateInput = {
   gid?: Prisma.SortOrder
   dien_tich?: Prisma.SortOrder
-  so_to?: Prisma.SortOrder
-  so_thua?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  id_gt?: Prisma.SortOrder
 }
 
 
 
 export type timduongSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  id_gt?: boolean
 }, ExtArgs["result"]["timduong"]>
 
 export type timduongSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  id_gt?: boolean
 }, ExtArgs["result"]["timduong"]>
 
 export type timduongSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  id_gt?: boolean
 }, ExtArgs["result"]["timduong"]>
 
 export type timduongSelectScalar = {
   gid?: boolean
-  loai_dat?: boolean
-  dien_tich?: boolean
   ma_xa?: boolean
-  so_to?: boolean
-  so_thua?: boolean
-  layer?: boolean
-  path?: boolean
+  dien_tich?: boolean
   ten_duong?: boolean
-  price?: boolean
+  id_gt?: boolean
 }
 
-export type timduongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"gid" | "loai_dat" | "dien_tich" | "ma_xa" | "so_to" | "so_thua" | "layer" | "path" | "ten_duong" | "price", ExtArgs["result"]["timduong"]>
+export type timduongOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"gid" | "ma_xa" | "dien_tich" | "ten_duong" | "id_gt", ExtArgs["result"]["timduong"]>
 
 export type $timduongPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "timduong"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     gid: number
-    loai_dat: string | null
-    dien_tich: number | null
     ma_xa: string | null
-    so_to: number | null
-    so_thua: number | null
-    layer: string | null
-    path: string | null
+    dien_tich: number | null
     ten_duong: string | null
-    price: number | null
+    id_gt: number | null
   }, ExtArgs["result"]["timduong"]>
   composites: {}
 }
@@ -974,15 +827,10 @@ export interface Prisma__timduongClient<T, Null = never, ExtArgs extends runtime
  */
 export interface timduongFieldRefs {
   readonly gid: Prisma.FieldRef<"timduong", 'Int'>
-  readonly loai_dat: Prisma.FieldRef<"timduong", 'String'>
-  readonly dien_tich: Prisma.FieldRef<"timduong", 'Float'>
   readonly ma_xa: Prisma.FieldRef<"timduong", 'String'>
-  readonly so_to: Prisma.FieldRef<"timduong", 'Float'>
-  readonly so_thua: Prisma.FieldRef<"timduong", 'Float'>
-  readonly layer: Prisma.FieldRef<"timduong", 'String'>
-  readonly path: Prisma.FieldRef<"timduong", 'String'>
+  readonly dien_tich: Prisma.FieldRef<"timduong", 'Float'>
   readonly ten_duong: Prisma.FieldRef<"timduong", 'String'>
-  readonly price: Prisma.FieldRef<"timduong", 'Float'>
+  readonly id_gt: Prisma.FieldRef<"timduong", 'Float'>
 }
     
 

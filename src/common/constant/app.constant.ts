@@ -15,6 +15,10 @@ export const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY as string;
 export const CLOUDINARY_API_SECRET = process.env
   .CLOUDINARY_API_SECRET as string;
 
+export const OPEN_AI_KEY = process.env.OPEN_AI_KEY as string;
+export const SUPABASE_URL = process.env.SUPABASE_URL as string;
+export const SUPABASE_SERVICE_ROLE_KEY = process.env
+  .SUPABASE_SERVICE_ROLE_KEY as string;
 // if (!ACCESS_TOKEN_SECRET || !REFRESH_TOKEN_SECRET) {
 //   throw new Error('JWT secrets are not defined');
 // }
@@ -33,6 +37,9 @@ console.log(
     CLOUDINARY_NAME: CLOUDINARY_NAME,
     CLOUDINARY_API_KEY: CLOUDINARY_API_KEY,
     CLOUDINARY_API_SECRET: CLOUDINARY_API_SECRET,
+    OPEN_AI_KEY: OPEN_AI_KEY,
+    SUPABASE_URL: SUPABASE_URL,
+    SUPABASE_SERVICE_ROLE_KEY: SUPABASE_SERVICE_ROLE_KEY,
   },
   '\n',
 );

@@ -18,45 +18,70 @@ model spatial_ref_sys {
 }
 
 model giaothong {
-  gid       Int                      @id @default(autoincrement())
-  loai_dat  String?                  @db.VarChar(10)
-  dien_tich Float?
-  ma_xa     String?                  @db.VarChar(5)
-  so_to     Float?
-  so_thua   Float?
-  layer     String?                  @db.VarChar(254)
-  path      String?                  @db.VarChar(254)
-  ten_duong String?                  @db.VarChar(254)
-  price     Float?
-  geom      Unsupported("geometry")?
-
-  @@index([geom], type: Gist)
-}
-
-model thuadat {
-  gid       Int                      @id @default(autoincrement())
-  loai_dat  String?                  @db.VarChar(10)
-  dien_tich Float?
-  ma_xa     String?                  @db.VarChar(5)
-  so_to     Float?
-  so_thua   Float?
-  geom      Unsupported("geometry")?
+  gid        Int                      @id @default(autoincrement())
+  ma_xa      String?                  @db.VarChar(5)
+  dien_tich  Float?
+  ten_duong  String?                  @db.VarChar(254)
+  vi_tri     Int?                     @db.SmallInt
+  odt        Float?
+  tmv        Float?
+  skc        Float?
+  doan_duong String?                  @db.VarChar(254)
+  geom       Unsupported("geometry")?
 
   @@index([geom], type: Gist)
 }
 
 model timduong {
   gid       Int                      @id @default(autoincrement())
-  loai_dat  String?                  @db.VarChar(10)
+  ma_xa     String?                  @db.VarChar(5)
   dien_tich Float?
+  ten_duong String?                  @db.VarChar(254)
+  id_gt     Float?
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model benthanh {
+  gid       Int                      @id @default(autoincrement())
   ma_xa     String?                  @db.VarChar(5)
   so_to     Float?
   so_thua   Float?
-  layer     String?                  @db.VarChar(254)
-  path      String?                  @db.VarChar(254)
-  ten_duong String?                  @db.VarChar(254)
-  price     Float?
+  dien_tich Float?
+  loai_dat  String?                  @db.VarChar(3)
+  mathuadat String?                  @db.VarChar(12)
   geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model users {
+  user_id    Int       @id @default(autoincrement())
+  full_name  String?   @db.VarChar(255)
+  email      String?   @unique @db.VarChar(255)
+  phone      String?   @db.VarChar(20)
+  password   String    @db.VarChar(255)
+  role       String?   @default("user") @db.VarChar(50)
+  deleted_by Int?      @default(0)
+  deleted_at DateTime? @db.Timestamp(6)
+  is_deleted Boolean?  @default(false)
+  avatar     String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  updated_at DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model giaothong_vitri {
+  gid        Int                      @id @default(autoincrement())
+  ma_xa      String?                  @db.VarChar(7)
+  dien_tich  Float?
+  ten_duong  String?                  @db.VarChar(254)
+  vi_tri     Int?                     @db.SmallInt
+  odt        Float?
+  tmv        Float?
+  skc        Float?
+  doan_duong String?                  @db.VarChar(254)
+  geom       Unsupported("geometry")?
 
   @@index([geom], type: Gist)
 }

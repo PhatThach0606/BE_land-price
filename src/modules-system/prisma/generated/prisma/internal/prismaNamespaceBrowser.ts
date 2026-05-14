@@ -53,8 +53,10 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   spatial_ref_sys: 'spatial_ref_sys',
   giaothong: 'giaothong',
-  thuadat: 'thuadat',
-  timduong: 'timduong'
+  timduong: 'timduong',
+  benthanh: 'benthanh',
+  users: 'users',
+  giaothong_vitri: 'giaothong_vitri'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -86,46 +88,74 @@ export type Spatial_ref_sysScalarFieldEnum = (typeof Spatial_ref_sysScalarFieldE
 
 export const GiaothongScalarFieldEnum = {
   gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
   ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua',
-  layer: 'layer',
-  path: 'path',
+  dien_tich: 'dien_tich',
   ten_duong: 'ten_duong',
-  price: 'price'
+  vi_tri: 'vi_tri',
+  odt: 'odt',
+  tmv: 'tmv',
+  skc: 'skc',
+  doan_duong: 'doan_duong'
 } as const
 
 export type GiaothongScalarFieldEnum = (typeof GiaothongScalarFieldEnum)[keyof typeof GiaothongScalarFieldEnum]
 
 
-export const ThuadatScalarFieldEnum = {
-  gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
-  ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua'
-} as const
-
-export type ThuadatScalarFieldEnum = (typeof ThuadatScalarFieldEnum)[keyof typeof ThuadatScalarFieldEnum]
-
-
 export const TimduongScalarFieldEnum = {
   gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
   ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua',
-  layer: 'layer',
-  path: 'path',
+  dien_tich: 'dien_tich',
   ten_duong: 'ten_duong',
-  price: 'price'
+  id_gt: 'id_gt'
 } as const
 
 export type TimduongScalarFieldEnum = (typeof TimduongScalarFieldEnum)[keyof typeof TimduongScalarFieldEnum]
+
+
+export const BenthanhScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  so_to: 'so_to',
+  so_thua: 'so_thua',
+  dien_tich: 'dien_tich',
+  loai_dat: 'loai_dat',
+  mathuadat: 'mathuadat'
+} as const
+
+export type BenthanhScalarFieldEnum = (typeof BenthanhScalarFieldEnum)[keyof typeof BenthanhScalarFieldEnum]
+
+
+export const UsersScalarFieldEnum = {
+  user_id: 'user_id',
+  full_name: 'full_name',
+  email: 'email',
+  phone: 'phone',
+  password: 'password',
+  role: 'role',
+  deleted_by: 'deleted_by',
+  deleted_at: 'deleted_at',
+  is_deleted: 'is_deleted',
+  avatar: 'avatar',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const Giaothong_vitriScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  dien_tich: 'dien_tich',
+  ten_duong: 'ten_duong',
+  vi_tri: 'vi_tri',
+  odt: 'odt',
+  tmv: 'tmv',
+  skc: 'skc',
+  doan_duong: 'doan_duong'
+} as const
+
+export type Giaothong_vitriScalarFieldEnum = (typeof Giaothong_vitriScalarFieldEnum)[keyof typeof Giaothong_vitriScalarFieldEnum]
 
 
 export const SortOrder = {

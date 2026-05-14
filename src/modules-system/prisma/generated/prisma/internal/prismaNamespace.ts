@@ -386,8 +386,10 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   spatial_ref_sys: 'spatial_ref_sys',
   giaothong: 'giaothong',
-  thuadat: 'thuadat',
-  timduong: 'timduong'
+  timduong: 'timduong',
+  benthanh: 'benthanh',
+  users: 'users',
+  giaothong_vitri: 'giaothong_vitri'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "spatial_ref_sys" | "giaothong" | "thuadat" | "timduong"
+    modelProps: "spatial_ref_sys" | "giaothong" | "timduong" | "benthanh" | "users" | "giaothong_vitri"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -555,80 +557,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    thuadat: {
-      payload: Prisma.$thuadatPayload<ExtArgs>
-      fields: Prisma.thuadatFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.thuadatFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.thuadatFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        findFirst: {
-          args: Prisma.thuadatFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.thuadatFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        findMany: {
-          args: Prisma.thuadatFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>[]
-        }
-        create: {
-          args: Prisma.thuadatCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        createMany: {
-          args: Prisma.thuadatCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.thuadatCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>[]
-        }
-        delete: {
-          args: Prisma.thuadatDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        update: {
-          args: Prisma.thuadatUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        deleteMany: {
-          args: Prisma.thuadatDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.thuadatUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.thuadatUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>[]
-        }
-        upsert: {
-          args: Prisma.thuadatUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$thuadatPayload>
-        }
-        aggregate: {
-          args: Prisma.ThuadatAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateThuadat>
-        }
-        groupBy: {
-          args: Prisma.thuadatGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ThuadatGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.thuadatCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ThuadatCountAggregateOutputType> | number
-        }
-      }
-    }
     timduong: {
       payload: Prisma.$timduongPayload<ExtArgs>
       fields: Prisma.timduongFieldRefs
@@ -703,6 +631,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    benthanh: {
+      payload: Prisma.$benthanhPayload<ExtArgs>
+      fields: Prisma.benthanhFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.benthanhFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.benthanhFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        findFirst: {
+          args: Prisma.benthanhFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.benthanhFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        findMany: {
+          args: Prisma.benthanhFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>[]
+        }
+        create: {
+          args: Prisma.benthanhCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        createMany: {
+          args: Prisma.benthanhCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.benthanhCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>[]
+        }
+        delete: {
+          args: Prisma.benthanhDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        update: {
+          args: Prisma.benthanhUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        deleteMany: {
+          args: Prisma.benthanhDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.benthanhUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.benthanhUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>[]
+        }
+        upsert: {
+          args: Prisma.benthanhUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$benthanhPayload>
+        }
+        aggregate: {
+          args: Prisma.BenthanhAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBenthanh>
+        }
+        groupBy: {
+          args: Prisma.benthanhGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BenthanhGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.benthanhCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BenthanhCountAggregateOutputType> | number
+        }
+      }
+    }
+    users: {
+      payload: Prisma.$usersPayload<ExtArgs>
+      fields: Prisma.usersFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.usersFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.usersFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        findFirst: {
+          args: Prisma.usersFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.usersFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        findMany: {
+          args: Prisma.usersFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        create: {
+          args: Prisma.usersCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        createMany: {
+          args: Prisma.usersCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.usersCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        delete: {
+          args: Prisma.usersDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        update: {
+          args: Prisma.usersUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        deleteMany: {
+          args: Prisma.usersDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.usersUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.usersUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>[]
+        }
+        upsert: {
+          args: Prisma.usersUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$usersPayload>
+        }
+        aggregate: {
+          args: Prisma.UsersAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUsers>
+        }
+        groupBy: {
+          args: Prisma.usersGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsersGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.usersCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsersCountAggregateOutputType> | number
+        }
+      }
+    }
+    giaothong_vitri: {
+      payload: Prisma.$giaothong_vitriPayload<ExtArgs>
+      fields: Prisma.giaothong_vitriFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.giaothong_vitriFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.giaothong_vitriFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        findFirst: {
+          args: Prisma.giaothong_vitriFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.giaothong_vitriFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        findMany: {
+          args: Prisma.giaothong_vitriFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>[]
+        }
+        create: {
+          args: Prisma.giaothong_vitriCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        createMany: {
+          args: Prisma.giaothong_vitriCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.giaothong_vitriCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>[]
+        }
+        delete: {
+          args: Prisma.giaothong_vitriDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        update: {
+          args: Prisma.giaothong_vitriUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        deleteMany: {
+          args: Prisma.giaothong_vitriDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.giaothong_vitriUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.giaothong_vitriUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>[]
+        }
+        upsert: {
+          args: Prisma.giaothong_vitriUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$giaothong_vitriPayload>
+        }
+        aggregate: {
+          args: Prisma.Giaothong_vitriAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGiaothong_vitri>
+        }
+        groupBy: {
+          args: Prisma.giaothong_vitriGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Giaothong_vitriGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.giaothong_vitriCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Giaothong_vitriCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -755,46 +905,74 @@ export type Spatial_ref_sysScalarFieldEnum = (typeof Spatial_ref_sysScalarFieldE
 
 export const GiaothongScalarFieldEnum = {
   gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
   ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua',
-  layer: 'layer',
-  path: 'path',
+  dien_tich: 'dien_tich',
   ten_duong: 'ten_duong',
-  price: 'price'
+  vi_tri: 'vi_tri',
+  odt: 'odt',
+  tmv: 'tmv',
+  skc: 'skc',
+  doan_duong: 'doan_duong'
 } as const
 
 export type GiaothongScalarFieldEnum = (typeof GiaothongScalarFieldEnum)[keyof typeof GiaothongScalarFieldEnum]
 
 
-export const ThuadatScalarFieldEnum = {
-  gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
-  ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua'
-} as const
-
-export type ThuadatScalarFieldEnum = (typeof ThuadatScalarFieldEnum)[keyof typeof ThuadatScalarFieldEnum]
-
-
 export const TimduongScalarFieldEnum = {
   gid: 'gid',
-  loai_dat: 'loai_dat',
-  dien_tich: 'dien_tich',
   ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua',
-  layer: 'layer',
-  path: 'path',
+  dien_tich: 'dien_tich',
   ten_duong: 'ten_duong',
-  price: 'price'
+  id_gt: 'id_gt'
 } as const
 
 export type TimduongScalarFieldEnum = (typeof TimduongScalarFieldEnum)[keyof typeof TimduongScalarFieldEnum]
+
+
+export const BenthanhScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  so_to: 'so_to',
+  so_thua: 'so_thua',
+  dien_tich: 'dien_tich',
+  loai_dat: 'loai_dat',
+  mathuadat: 'mathuadat'
+} as const
+
+export type BenthanhScalarFieldEnum = (typeof BenthanhScalarFieldEnum)[keyof typeof BenthanhScalarFieldEnum]
+
+
+export const UsersScalarFieldEnum = {
+  user_id: 'user_id',
+  full_name: 'full_name',
+  email: 'email',
+  phone: 'phone',
+  password: 'password',
+  role: 'role',
+  deleted_by: 'deleted_by',
+  deleted_at: 'deleted_at',
+  is_deleted: 'is_deleted',
+  avatar: 'avatar',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const Giaothong_vitriScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  dien_tich: 'dien_tich',
+  ten_duong: 'ten_duong',
+  vi_tri: 'vi_tri',
+  odt: 'odt',
+  tmv: 'tmv',
+  skc: 'skc',
+  doan_duong: 'doan_duong'
+} as const
+
+export type Giaothong_vitriScalarFieldEnum = (typeof Giaothong_vitriScalarFieldEnum)[keyof typeof Giaothong_vitriScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -866,6 +1044,27 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Float[]'
  */
 export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 /**
@@ -965,8 +1164,10 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   spatial_ref_sys?: Prisma.spatial_ref_sysOmit
   giaothong?: Prisma.giaothongOmit
-  thuadat?: Prisma.thuadatOmit
   timduong?: Prisma.timduongOmit
+  benthanh?: Prisma.benthanhOmit
+  users?: Prisma.usersOmit
+  giaothong_vitri?: Prisma.giaothong_vitriOmit
 }
 
 /* Types for Logging */

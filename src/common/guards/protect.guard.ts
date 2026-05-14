@@ -33,6 +33,7 @@ export class ProtectGuard implements CanActivate {
     if (!token) {
       throw new UnauthorizedException();
     }
+
     try {
       const payload = await this.jwtService.verifyAsync(token, {
         secret: ACCESS_TOKEN_SECRET,
@@ -46,6 +47,7 @@ export class ProtectGuard implements CanActivate {
           throw new UnauthorizedException();
       }
     }
+    console.log('AUTH HEADER:', request.headers.authorization);
     return true;
   }
 

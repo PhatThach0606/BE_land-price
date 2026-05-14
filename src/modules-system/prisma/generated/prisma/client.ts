@@ -50,12 +50,22 @@ export type spatial_ref_sys = Prisma.spatial_ref_sysModel
  */
 export type giaothong = Prisma.giaothongModel
 /**
- * Model thuadat
- * 
- */
-export type thuadat = Prisma.thuadatModel
-/**
  * Model timduong
  * 
  */
 export type timduong = Prisma.timduongModel
+/**
+ * Model benthanh
+ * 
+ */
+export type benthanh = Prisma.benthanhModel
+/**
+ * Model users
+ * 
+ */
+export type users = Prisma.usersModel
+/**
+ * Model giaothong_vitri
+ * 
+ */
+export type giaothong_vitri = Prisma.giaothong_vitriModel
