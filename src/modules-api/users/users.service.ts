@@ -101,11 +101,16 @@ export class UsersService {
           phone: true,
           role: true,
           avatar: true,
-          is_deleted: true,
+          is_deleted: false,
         },
         orderBy: { user_id: 'asc' },
       }),
-      this.prismaService.users.count({ where: whereCondition }),
+      this.prismaService.users.count({
+        where: {
+          ...whereCondition,
+          is_deleted: false,
+        },
+      }),
     ]);
 
     const totalPage = Math.ceil(total / pageSize);
