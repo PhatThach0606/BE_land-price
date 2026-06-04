@@ -17,41 +17,10 @@ model spatial_ref_sys {
   proj4text String? @db.VarChar(2048)
 }
 
-model giaothong {
-  gid        Int                      @id @default(autoincrement())
-  ma_xa      String?                  @db.VarChar(5)
-  dien_tich  Float?
-  ten_duong  String?                  @db.VarChar(254)
-  vi_tri     Int?                     @db.SmallInt
-  odt        Float?
-  tmv        Float?
-  skc        Float?
-  doan_duong String?                  @db.VarChar(254)
-  geom       Unsupported("geometry")?
-
-  @@index([geom], type: Gist)
-}
-
 model timduong {
-  gid       Int                      @id @default(autoincrement())
-  ma_xa     String?                  @db.VarChar(5)
-  dien_tich Float?
-  ten_duong String?                  @db.VarChar(254)
-  id_gt     Float?
-  geom      Unsupported("geometry")?
-
-  @@index([geom], type: Gist)
-}
-
-model benthanh {
-  gid       Int                      @id @default(autoincrement())
-  ma_xa     String?                  @db.VarChar(5)
-  so_to     Float?
-  so_thua   Float?
-  dien_tich Float?
-  loai_dat  String?                  @db.VarChar(3)
-  mathuadat String?                  @db.VarChar(12)
-  geom      Unsupported("geometry")?
+  gid  Int                      @id @default(autoincrement())
+  id   Float?
+  geom Unsupported("geometry")?
 
   @@index([geom], type: Gist)
 }
@@ -69,19 +38,53 @@ model users {
   avatar     String?   @db.VarChar(255)
   created_at DateTime? @default(now()) @db.Timestamp(6)
   updated_at DateTime? @default(now()) @db.Timestamp(6)
+  gender     Boolean?
 }
 
-model giaothong_vitri {
+model giaothong_logic {
   gid        Int                      @id @default(autoincrement())
-  ma_xa      String?                  @db.VarChar(7)
-  dien_tich  Float?
+  ma_xa      String?                  @db.VarChar(5)
+  id         String?                  @db.VarChar(6)
   ten_duong  String?                  @db.VarChar(254)
+  loai_dat   String?                  @db.VarChar(10)
   vi_tri     Int?                     @db.SmallInt
-  odt        Float?
-  tmv        Float?
-  skc        Float?
-  doan_duong String?                  @db.VarChar(254)
   geom       Unsupported("geometry")?
+  banggiadat banggiadat?              @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_giaothonglogic_banggiadat")
 
   @@index([geom], type: Gist)
+}
+
+model giaothong_render {
+  gid       Int                      @id @default(autoincrement())
+  ma_xa     String?                  @db.VarChar(5)
+  id        String?                  @db.VarChar(6)
+  ten_duong String?                  @db.VarChar(254)
+  loai_dat  String?                  @db.VarChar(10)
+  vi_tri    Int?                     @db.SmallInt
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model thuadat {
+  gid       Int                      @id @default(autoincrement())
+  ma_xa     String?                  @db.VarChar(5)
+  mathuadat String?                  @db.VarChar(12)
+  so_to     Float?
+  so_thua   Float?
+  dien_tich Float?
+  loai_dat  String?                  @db.VarChar(10)
+  geom      Unsupported("geometry")?
+
+  @@index([geom], type: Gist)
+}
+
+model banggiadat {
+  id              String            @id @db.VarChar(10)
+  ten_duong       String?           @db.VarChar(255)
+  doan_duong      String?           @db.VarChar(255)
+  odt             Float?
+  tmd             Float?
+  skc             Float?
+  giaothong_logic giaothong_logic[]
 }

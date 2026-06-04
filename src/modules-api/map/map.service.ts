@@ -12,21 +12,39 @@ export class MapService {
 
   async findAll() {
     const result: any = await this.prismaService.$queryRaw`
-    SELECT ST_AsGeoJSON(geom) as geom
-    FROM benthanh
+    SELECT loai_dat,ST_AsGeoJSON(geom) as geom
+    FROM thuadat
     `;
     return FeatureCollectionGeoJson(
-      result.map((item) => ({ geom: item.geom, properties: { type: 'land' } })),
+      result.map((item) => ({
+        geom: item.geom,
+        properties: { type: 'land', loai_dat: item.loai_dat },
+      })),
     );
   }
 
   async findAllTraffic() {
     const result: any = await this.prismaService.$queryRaw`
-    SELECT ST_AsGeoJSON(geom) as geom
-    FROM giaothong
+    SELECT loai_dat,ST_AsGeoJSON(geom) as geom
+    FROM giaothong_render
     `;
     return FeatureCollectionGeoJson(
-      result.map((item) => ({ geom: item.geom, properties: { type: 'road' } })),
+      result.map((item) => ({
+        geom: item.geom,
+        properties: { type: 'road', loai_dat: item.loai_dat },
+      })),
+    );
+  }
+  async findAllTraffic_Logic() {
+    const result: any = await this.prismaService.$queryRaw`
+    SELECT loai_dat,ST_AsGeoJSON(geom) as geom
+    FROM giaothong_logic
+    `;
+    return FeatureCollectionGeoJson(
+      result.map((item) => ({
+        geom: item.geom,
+        properties: { type: 'road', loai_dat: item.loai_dat },
+      })),
     );
   }
   async findLineString() {
@@ -45,12 +63,11 @@ export class MapService {
 
     const skips = (page - 1) * pageSize;
 
-    let whereCondition: Prisma.benthanhWhereInput = {};
+    let whereCondition: Prisma.thuadatWhereInput = {};
 
     if (keyword) {
       const parts = keyword.split(/[\s/-]+/);
 
-      // ✅ Case: "12 34" → tờ + thửa
       if (parts.length === 2) {
         const soTo = Number(parts[0]);
         const soThua = Number(parts[1]);
@@ -81,7 +98,7 @@ export class MapService {
     }
 
     const [data, total] = await Promise.all([
-      this.prismaService.benthanh.findMany({
+      this.prismaService.thuadat.findMany({
         where: whereCondition,
         skip: skips,
         take: pageSize,
@@ -95,7 +112,7 @@ export class MapService {
         },
         orderBy: { gid: 'asc' },
       }),
-      this.prismaService.benthanh.count({ where: whereCondition }),
+      this.prismaService.thuadat.count({ where: whereCondition }),
     ]);
 
     const totalPage = Math.ceil(total / pageSize);
@@ -107,7 +124,12 @@ export class MapService {
     return { page, pageSize, total, totalPage, data };
   }
   async updateThuaDat(id: number, body: any) {
-    const existing = await this.prismaService.benthanh.findUnique({
+    // validate id
+    if (!id || isNaN(Number(id)) || Number(id) <= 0) {
+      throw new BadRequestException('ID không hợp lệ');
+    }
+
+    const existing = await this.prismaService.thuadat.findUnique({
       where: { gid: id },
     });
 
@@ -115,13 +137,57 @@ export class MapService {
       throw new NotFoundException('Thửa đất không tồn tại');
     }
 
-    return this.prismaService.benthanh.update({
+    // validate số tờ
+    if (
+      body.so_to === undefined ||
+      body.so_to === null ||
+      isNaN(Number(body.so_to)) ||
+      Number(body.so_to) <= 0 ||
+      Number(body.so_to) > 2000
+    ) {
+      throw new BadRequestException('Số tờ không hợp lệ');
+    }
+
+    // validate số thửa
+    if (
+      body.so_thua === undefined ||
+      body.so_thua === null ||
+      isNaN(Number(body.so_thua)) ||
+      Number(body.so_thua) <= 0 ||
+      Number(body.so_thua) > 20000
+    ) {
+      throw new BadRequestException('Số thửa không hợp lệ');
+    }
+
+    // validate loại đất
+    if (
+      !body.loai_dat ||
+      typeof body.loai_dat !== 'string' ||
+      body.loai_dat.trim().length < 2 ||
+      body.loai_dat.trim().length > 50
+    ) {
+      throw new BadRequestException('Loại đất không hợp lệ');
+    }
+
+    // validate diện tích
+    if (
+      body.dien_tich === undefined ||
+      body.dien_tich === null ||
+      isNaN(Number(body.dien_tich)) ||
+      Number(body.dien_tich) <= 0 ||
+      Number(body.dien_tich) > 1000000
+    ) {
+      throw new BadRequestException('Diện tích không hợp lệ');
+    }
+
+    return this.prismaService.thuadat.update({
       where: { gid: id },
+
       data: {
-        so_to: body.so_to,
-        so_thua: body.so_thua,
-        loai_dat: body.loai_dat,
-        dien_tich: body.dien_tich,
+        so_to: Number(body.so_to),
+        so_thua: Number(body.so_thua),
+        loai_dat: body.loai_dat.trim().toUpperCase(),
+        dien_tich: Number(body.dien_tich),
       },
     });
   }
@@ -132,66 +198,65 @@ export class MapService {
 
     const skips = (page - 1) * pageSize;
 
-    let whereCondition: Prisma.giaothong_vitriWhereInput = {};
-
-    if (keyword) {
-      whereCondition = {
-        OR: [
-          {
-            ten_duong: {
-              contains: keyword,
-              mode: Prisma.QueryMode.insensitive,
-            },
-          },
-          {
-            doan_duong: {
-              contains: keyword,
-              mode: Prisma.QueryMode.insensitive,
-            },
-          },
-        ],
-      };
-    }
-
-    const [data, total] = await Promise.all([
-      this.prismaService.giaothong_vitri.findMany({
-        where: {
-          AND: [
-            whereCondition,
+    const whereCondition: Prisma.banggiadatWhereInput = {
+      AND: [
+        {
+          NOT: [
             {
-              NOT: {
-                ten_duong: {
-                  in: ['Hẻm', 'hẻm', 'Hẽm', 'hẽm'],
-                },
+              ten_duong: {
+                startsWith: 'HẺM',
+                mode: Prisma.QueryMode.insensitive,
+              },
+            },
+            {
+              ten_duong: {
+                startsWith: 'Bùng Binh',
+                mode: Prisma.QueryMode.insensitive,
               },
             },
           ],
         },
+
+        keyword
+          ? {
+              OR: [
+                {
+                  ten_duong: {
+                    contains: keyword,
+                    mode: Prisma.QueryMode.insensitive,
+                  },
+                },
+                {
+                  doan_duong: {
+                    contains: keyword,
+                    mode: Prisma.QueryMode.insensitive,
+                  },
+                },
+              ],
+            }
+          : {},
+      ],
+    };
+
+    const [data, total] = await Promise.all([
+      this.prismaService.banggiadat.findMany({
+        where: whereCondition,
+
         skip: skips,
         take: pageSize,
+
         select: {
-          gid: true,
+          id: true,
           ten_duong: true,
           doan_duong: true,
           odt: true,
-          tmv: true,
+          tmd: true,
           skc: true,
         },
-        orderBy: { gid: 'asc' },
       }),
-      this.prismaService.giaothong_vitri.count({
-        where: {
-          AND: [
-            whereCondition,
-            {
-              NOT: {
-                ten_duong: {
-                  in: ['Hẻm', 'hẻm', 'Hẽm', 'hẽm'],
-                },
-              },
-            },
-          ],
-        },
+
+      this.prismaService.banggiadat.count({
+        where: whereCondition,
       }),
     ]);
 
@@ -201,25 +266,46 @@ export class MapService {
       throw new BadRequestException('Page not found');
     }
 
-    return { page, pageSize, total, totalPage, data };
+    return {
+      page,
+      pageSize,
+      total,
+      totalPage,
+      data,
+    };
   }
-
-  async updateGiaoThong(id: number, body: any) {
-    const existing = await this.prismaService.giaothong_vitri.findUnique({
-      where: { gid: id },
+  async updateGiaoThong(id: string, body: any) {
+    const existing = await this.prismaService.banggiadat.findUnique({
+      where: {
+        id: id,
+      },
     });
 
     if (!existing) {
-      throw new NotFoundException('Giao thông không tồn tại');
+      throw new NotFoundException('Không tìm thấy dữ liệu bảng giá đất');
     }
 
-    return this.prismaService.giaothong_vitri.update({
-      where: { gid: id },
+    return this.prismaService.banggiadat.update({
+      where: {
+        id: id,
+      },
+
       data: {
-        ten_duong: body.ten_duong,
+        id: body.id,
         odt: body.odt,
-        tmv: body.tmv,
+        tmd: body.tmd,
         skc: body.skc,
+        doan_duong: body.doan_duong,
+        ten_duong: body.ten_duong,
+      },
+
+      select: {
+        id: true,
+        ten_duong: true,
+        doan_duong: true,
+        odt: true,
+        tmd: true,
+        skc: true,
       },
     });
   }

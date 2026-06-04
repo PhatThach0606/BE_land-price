@@ -45,27 +45,32 @@ export { Prisma }
  */
 export type spatial_ref_sys = Prisma.spatial_ref_sysModel
 /**
- * Model giaothong
- * 
- */
-export type giaothong = Prisma.giaothongModel
-/**
  * Model timduong
  * 
  */
 export type timduong = Prisma.timduongModel
-/**
- * Model benthanh
- * 
- */
-export type benthanh = Prisma.benthanhModel
 /**
  * Model users
  * 
  */
 export type users = Prisma.usersModel
 /**
- * Model giaothong_vitri
+ * Model giaothong_logic
  * 
  */
-export type giaothong_vitri = Prisma.giaothong_vitriModel
+export type giaothong_logic = Prisma.giaothong_logicModel
+/**
+ * Model giaothong_render
+ * 
+ */
+export type giaothong_render = Prisma.giaothong_renderModel
+/**
+ * Model thuadat
+ * 
+ */
+export type thuadat = Prisma.thuadatModel
+/**
+ * Model banggiadat
+ * 
+ */
+export type banggiadat = Prisma.banggiadatModel

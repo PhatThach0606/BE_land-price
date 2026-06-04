@@ -16,6 +16,10 @@ export class MapController {
   async getTraffic() {
     return this.mapService.findAllTraffic();
   }
+  @Get('traffic-logic')
+  async getTrafficLogic() {
+    return this.mapService.findAllTraffic_Logic();
+  }
   // @Roles('ADMIN')
   @Get('line-string')
   async getLineString() {
@@ -57,6 +61,6 @@ export class MapController {
 
   @Patch('giao-thong/:id')
   updateGiaoThong(@Param('id') id: string, @Body() body: any) {
-    return this.mapService.updateGiaoThong(Number(id), body);
+    return this.mapService.updateGiaoThong(String(id), body);
   }
 }

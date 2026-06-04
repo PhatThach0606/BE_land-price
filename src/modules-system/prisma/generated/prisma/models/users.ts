@@ -49,6 +49,7 @@ export type UsersMinAggregateOutputType = {
   avatar: string | null
   created_at: Date | null
   updated_at: Date | null
+  gender: boolean | null
 }
 
 export type UsersMaxAggregateOutputType = {
@@ -64,6 +65,7 @@ export type UsersMaxAggregateOutputType = {
   avatar: string | null
   created_at: Date | null
   updated_at: Date | null
+  gender: boolean | null
 }
 
 export type UsersCountAggregateOutputType = {
@@ -79,6 +81,7 @@ export type UsersCountAggregateOutputType = {
   avatar: number
   created_at: number
   updated_at: number
+  gender: number
   _all: number
 }
 
@@ -106,6 +109,7 @@ export type UsersMinAggregateInputType = {
   avatar?: true
   created_at?: true
   updated_at?: true
+  gender?: true
 }
 
 export type UsersMaxAggregateInputType = {
@@ -121,6 +125,7 @@ export type UsersMaxAggregateInputType = {
   avatar?: true
   created_at?: true
   updated_at?: true
+  gender?: true
 }
 
 export type UsersCountAggregateInputType = {
@@ -136,6 +141,7 @@ export type UsersCountAggregateInputType = {
   avatar?: true
   created_at?: true
   updated_at?: true
+  gender?: true
   _all?: true
 }
 
@@ -238,6 +244,7 @@ export type UsersGroupByOutputType = {
   avatar: string | null
   created_at: Date | null
   updated_at: Date | null
+  gender: boolean | null
   _count: UsersCountAggregateOutputType | null
   _avg: UsersAvgAggregateOutputType | null
   _sum: UsersSumAggregateOutputType | null
@@ -245,7 +252,7 @@ export type UsersGroupByOutputType = {
   _max: UsersMaxAggregateOutputType | null
 }
 
-type GetUsersGroupByPayload<T extends usersGroupByArgs> = Prisma.PrismaPromise<
+export type GetUsersGroupByPayload<T extends usersGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<UsersGroupByOutputType, T['by']> &
       {
@@ -276,6 +283,7 @@ export type usersWhereInput = {
   avatar?: Prisma.StringNullableFilter<"users"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
+  gender?: Prisma.BoolNullableFilter<"users"> | boolean | null
 }
 
 export type usersOrderByWithRelationInput = {
@@ -291,6 +299,7 @@ export type usersOrderByWithRelationInput = {
   avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  gender?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -309,6 +318,7 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   avatar?: Prisma.StringNullableFilter<"users"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
+  gender?: Prisma.BoolNullableFilter<"users"> | boolean | null
 }, "user_id" | "email">
 
 export type usersOrderByWithAggregationInput = {
@@ -324,6 +334,7 @@ export type usersOrderByWithAggregationInput = {
   avatar?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  gender?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.usersCountOrderByAggregateInput
   _avg?: Prisma.usersAvgOrderByAggregateInput
   _max?: Prisma.usersMaxOrderByAggregateInput
@@ -347,6 +358,7 @@ export type usersScalarWhereWithAggregatesInput = {
   avatar?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
+  gender?: Prisma.BoolNullableWithAggregatesFilter<"users"> | boolean | null
 }
 
 export type usersCreateInput = {
@@ -361,6 +373,7 @@ export type usersCreateInput = {
   avatar?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  gender?: boolean | null
 }
 
 export type usersUncheckedCreateInput = {
@@ -376,6 +389,7 @@ export type usersUncheckedCreateInput = {
   avatar?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  gender?: boolean | null
 }
 
 export type usersUpdateInput = {
@@ -390,6 +404,7 @@ export type usersUpdateInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type usersUncheckedUpdateInput = {
@@ -405,6 +420,7 @@ export type usersUncheckedUpdateInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type usersCreateManyInput = {
@@ -420,6 +436,7 @@ export type usersCreateManyInput = {
   avatar?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  gender?: boolean | null
 }
 
 export type usersUpdateManyMutationInput = {
@@ -434,6 +451,7 @@ export type usersUpdateManyMutationInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type usersUncheckedUpdateManyInput = {
@@ -449,6 +467,7 @@ export type usersUncheckedUpdateManyInput = {
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  gender?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
 }
 
 export type usersCountOrderByAggregateInput = {
@@ -464,6 +483,7 @@ export type usersCountOrderByAggregateInput = {
   avatar?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
 }
 
 export type usersAvgOrderByAggregateInput = {
@@ -484,6 +504,7 @@ export type usersMaxOrderByAggregateInput = {
   avatar?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
 }
 
 export type usersMinOrderByAggregateInput = {
@@ -499,6 +520,7 @@ export type usersMinOrderByAggregateInput = {
   avatar?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
 }
 
 export type usersSumOrderByAggregateInput = {
@@ -533,6 +555,7 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   avatar?: boolean
   created_at?: boolean
   updated_at?: boolean
+  gender?: boolean
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -548,6 +571,7 @@ export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   avatar?: boolean
   created_at?: boolean
   updated_at?: boolean
+  gender?: boolean
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -563,6 +587,7 @@ export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   avatar?: boolean
   created_at?: boolean
   updated_at?: boolean
+  gender?: boolean
 }, ExtArgs["result"]["users"]>
 
 export type usersSelectScalar = {
@@ -578,9 +603,10 @@ export type usersSelectScalar = {
   avatar?: boolean
   created_at?: boolean
   updated_at?: boolean
+  gender?: boolean
 }
 
-export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "full_name" | "email" | "phone" | "password" | "role" | "deleted_by" | "deleted_at" | "is_deleted" | "avatar" | "created_at" | "updated_at", ExtArgs["result"]["users"]>
+export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "full_name" | "email" | "phone" | "password" | "role" | "deleted_by" | "deleted_at" | "is_deleted" | "avatar" | "created_at" | "updated_at" | "gender", ExtArgs["result"]["users"]>
 
 export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "users"
@@ -598,6 +624,7 @@ export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     avatar: string | null
     created_at: Date | null
     updated_at: Date | null
+    gender: boolean | null
   }, ExtArgs["result"]["users"]>
   composites: {}
 }
@@ -1033,6 +1060,7 @@ export interface usersFieldRefs {
   readonly avatar: Prisma.FieldRef<"users", 'String'>
   readonly created_at: Prisma.FieldRef<"users", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"users", 'DateTime'>
+  readonly gender: Prisma.FieldRef<"users", 'Boolean'>
 }
     
 
@@ -1209,6 +1237,11 @@ export type usersFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Skip the first `n` users.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of users.
+   */
   distinct?: Prisma.UsersScalarFieldEnum | Prisma.UsersScalarFieldEnum[]
 }
 

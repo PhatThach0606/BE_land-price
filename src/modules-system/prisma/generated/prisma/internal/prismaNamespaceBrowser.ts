@@ -52,11 +52,12 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   spatial_ref_sys: 'spatial_ref_sys',
-  giaothong: 'giaothong',
   timduong: 'timduong',
-  benthanh: 'benthanh',
   users: 'users',
-  giaothong_vitri: 'giaothong_vitri'
+  giaothong_logic: 'giaothong_logic',
+  giaothong_render: 'giaothong_render',
+  thuadat: 'thuadat',
+  banggiadat: 'banggiadat'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -86,43 +87,12 @@ export const Spatial_ref_sysScalarFieldEnum = {
 export type Spatial_ref_sysScalarFieldEnum = (typeof Spatial_ref_sysScalarFieldEnum)[keyof typeof Spatial_ref_sysScalarFieldEnum]
 
 
-export const GiaothongScalarFieldEnum = {
-  gid: 'gid',
-  ma_xa: 'ma_xa',
-  dien_tich: 'dien_tich',
-  ten_duong: 'ten_duong',
-  vi_tri: 'vi_tri',
-  odt: 'odt',
-  tmv: 'tmv',
-  skc: 'skc',
-  doan_duong: 'doan_duong'
-} as const
-
-export type GiaothongScalarFieldEnum = (typeof GiaothongScalarFieldEnum)[keyof typeof GiaothongScalarFieldEnum]
-
-
 export const TimduongScalarFieldEnum = {
   gid: 'gid',
-  ma_xa: 'ma_xa',
-  dien_tich: 'dien_tich',
-  ten_duong: 'ten_duong',
-  id_gt: 'id_gt'
+  id: 'id'
 } as const
 
 export type TimduongScalarFieldEnum = (typeof TimduongScalarFieldEnum)[keyof typeof TimduongScalarFieldEnum]
-
-
-export const BenthanhScalarFieldEnum = {
-  gid: 'gid',
-  ma_xa: 'ma_xa',
-  so_to: 'so_to',
-  so_thua: 'so_thua',
-  dien_tich: 'dien_tich',
-  loai_dat: 'loai_dat',
-  mathuadat: 'mathuadat'
-} as const
-
-export type BenthanhScalarFieldEnum = (typeof BenthanhScalarFieldEnum)[keyof typeof BenthanhScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {
@@ -137,25 +107,60 @@ export const UsersScalarFieldEnum = {
   is_deleted: 'is_deleted',
   avatar: 'avatar',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  gender: 'gender'
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
-export const Giaothong_vitriScalarFieldEnum = {
+export const Giaothong_logicScalarFieldEnum = {
   gid: 'gid',
   ma_xa: 'ma_xa',
-  dien_tich: 'dien_tich',
+  id: 'id',
   ten_duong: 'ten_duong',
-  vi_tri: 'vi_tri',
-  odt: 'odt',
-  tmv: 'tmv',
-  skc: 'skc',
-  doan_duong: 'doan_duong'
+  loai_dat: 'loai_dat',
+  vi_tri: 'vi_tri'
 } as const
 
-export type Giaothong_vitriScalarFieldEnum = (typeof Giaothong_vitriScalarFieldEnum)[keyof typeof Giaothong_vitriScalarFieldEnum]
+export type Giaothong_logicScalarFieldEnum = (typeof Giaothong_logicScalarFieldEnum)[keyof typeof Giaothong_logicScalarFieldEnum]
+
+
+export const Giaothong_renderScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  id: 'id',
+  ten_duong: 'ten_duong',
+  loai_dat: 'loai_dat',
+  vi_tri: 'vi_tri'
+} as const
+
+export type Giaothong_renderScalarFieldEnum = (typeof Giaothong_renderScalarFieldEnum)[keyof typeof Giaothong_renderScalarFieldEnum]
+
+
+export const ThuadatScalarFieldEnum = {
+  gid: 'gid',
+  ma_xa: 'ma_xa',
+  mathuadat: 'mathuadat',
+  so_to: 'so_to',
+  so_thua: 'so_thua',
+  dien_tich: 'dien_tich',
+  loai_dat: 'loai_dat'
+} as const
+
+export type ThuadatScalarFieldEnum = (typeof ThuadatScalarFieldEnum)[keyof typeof ThuadatScalarFieldEnum]
+
+
+export const BanggiadatScalarFieldEnum = {
+  id: 'id',
+  ten_duong: 'ten_duong',
+  doan_duong: 'doan_duong',
+  odt: 'odt',
+  tmd: 'tmd',
+  skc: 'skc'
+} as const
+
+export type BanggiadatScalarFieldEnum = (typeof BanggiadatScalarFieldEnum)[keyof typeof BanggiadatScalarFieldEnum]
 
 
 export const SortOrder = {

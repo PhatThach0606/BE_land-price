@@ -9,9 +9,10 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/spatial_ref_sys.js'
-export type * from './models/giaothong.js'
 export type * from './models/timduong.js'
-export type * from './models/benthanh.js'
 export type * from './models/users.js'
-export type * from './models/giaothong_vitri.js'
+export type * from './models/giaothong_logic.js'
+export type * from './models/giaothong_render.js'
+export type * from './models/thuadat.js'
+export type * from './models/banggiadat.js'
 export type * from './commonInputTypes.js'
