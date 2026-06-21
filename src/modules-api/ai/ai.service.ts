@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { openai } from './openai.provider';
-import { createClient } from '@supabase/supabase-js';
-import { LAND_TOOLS } from 'src/common/AI/tool/ai.tool.js';
-type ChunkType = 'street_price' | 'law' | 'rule' | 'misc';
+import { supabase } from './supabase.provider';
 
+type ChunkType = 'street_price' | 'law' | 'rule' | 'misc';
 type Chunk = {
   content: string;
   type: ChunkType;
@@ -17,11 +16,6 @@ type Chunk = {
 };
 @Injectable()
 export class AiService {
-  private supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  );
-
   // =========================
   // UPLOAD
   // =========================
@@ -32,7 +26,7 @@ export class AiService {
     const chunks = this.splitByStructure(cleaned, file.originalname);
 
     // FIX: Supabase JSON filter
-    await this.supabase
+    await supabase
       .from('documents')
       .delete()
       .eq('metadata->>fileName', file.originalname);
@@ -55,7 +49,7 @@ export class AiService {
       },
     }));
 
-    const { error } = await this.supabase.from('documents').insert(rows);
+    const { error } = await supabase.from('documents').insert(rows);
 
     if (error) throw new Error(error.message);
 
@@ -206,7 +200,7 @@ export class AiService {
   async ask(question: string) {
     const embedding = await this.createEmbedding(question);
     const isStreetQuery = /đường|phố|hẻm|giá đất/i.test(question);
-    const { data, error } = await this.supabase.rpc('match_documents', {
+    const { data, error } = await supabase.rpc('match_documents', {
       query_embedding: embedding,
       match_count: 10,
     });

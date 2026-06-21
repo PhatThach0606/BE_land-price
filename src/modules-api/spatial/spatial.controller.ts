@@ -1,7 +1,6 @@
 import { Controller, Get, Body, Post, Patch, Param } from '@nestjs/common';
 import { SpatialService } from './spatial.service';
 import { PointDto } from './dto/spatial.dto.js';
-
 @Controller('spatial')
 export class SpatialController {
   constructor(private readonly spatialService: SpatialService) {}
@@ -26,13 +25,4 @@ export class SpatialController {
   async getRoadByCoord(@Body() body: PointDto) {
     return this.spatialService.getRoadByCoord(body);
   }
-  // // HeatMap
-  // @Post('heatmap')
-  // async heatmap(@Body() body: any) {
-  //   return this.spatialService.getHeatmap(body);
-  // }
-  // @Post('compare')
-  // async compare(@Body() body: any) {
-  //   return this.spatialService.compareArea(body);
-  // }
 }

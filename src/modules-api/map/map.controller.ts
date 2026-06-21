@@ -44,8 +44,6 @@ export class MapController {
     return this.mapService.updateThuaDat(Number(id), body);
   }
 
-  // ================= GIAO THONG =================
-
   @Get('giao-thong')
   findAllGiaoThong(
     @Query('page') page = 1,

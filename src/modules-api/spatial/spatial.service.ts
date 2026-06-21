@@ -13,14 +13,9 @@ export class SpatialService {
 
   async findPositionLandLot(body: PointDto) {
     const { lat, lng } = body;
-
-    // =========================
-    // 1. VALIDATE INPUT
-    // =========================
     if (lat === undefined || lng === undefined) {
       throw new BadRequestException('lat và lng bắt buộc');
     }
-
     const latitude = Number(lat);
     const longitude = Number(lng);
 
@@ -34,12 +29,7 @@ export class SpatialService {
     ) {
       throw new BadRequestException('lat/lng không hợp lệ');
     }
-
     const pointWKT = `POINT(${longitude} ${latitude})`;
-
-    // =========================
-    // 2. TÌM THỬA ĐẤT
-    // =========================
     const lands = await this.prismaService.$queryRaw<any[]>`
     SELECT
       gid,
